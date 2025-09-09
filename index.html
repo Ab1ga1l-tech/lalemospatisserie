@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Lemos Patisserie</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Menu -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">La Lemos</div>
     <nav>
@@ -19,6 +20,12 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
+    <!-- Carrinho -->
+    <div class="carrinho">
+      <img src="carrinho.svg" alt="Carrinho" class="icon-carrinho">
+      <span id="contador">0</span>
+      <span id="total">R$ 0,00</span>
+    </div>
   </header>
 
   <!-- Hero -->
@@ -26,7 +33,7 @@
     <div class="overlay">
       <h1>La Lemos Patisserie</h1>
       <p>Elegância e sabor em cada detalhe ✨</p>
-      <a href="https://wa.me/5521965120034" class="btn">Encomende Agora</a>
+      <a href="#produtos" class="btn">Ver Produtos</a>
     </div>
   </section>
 
@@ -41,9 +48,24 @@
   <section id="produtos" class="produtos">
     <h2>Nossos Produtos</h2>
     <div class="grid">
-      <div class="card"><img src="bolo.jpg" alt="Bolo"><h3>Bolos</h3></div>
-      <div class="card"><img src="panetone.jpg" alt="Panetone"><h3>Panetones</h3></div>
-      <div class="card"><img src="doces.jpg" alt="Doces"><h3>Doces Especiais</h3></div>
+      <div class="card">
+        <img src="bolo.jpg" alt="Bolo">
+        <h3>Bolo de Chocolate</h3>
+        <p>R$ 60,00</p>
+        <button onclick="adicionarCarrinho('Bolo de Chocolate', 60)">Adicionar</button>
+      </div>
+      <div class="card">
+        <img src="panetone.jpg" alt="Panetone">
+        <h3>Panetone Artesanal</h3>
+        <p>R$ 45,00</p>
+        <button onclick="adicionarCarrinho('Panetone Artesanal', 45)">Adicionar</button>
+      </div>
+      <div class="card">
+        <img src="doces.jpg" alt="Doces">
+        <h3>Caixa de Doces</h3>
+        <p>R$ 30,00</p>
+        <button onclick="adicionarCarrinho('Caixa de Doces', 30)">Adicionar</button>
+      </div>
     </div>
   </section>
 
