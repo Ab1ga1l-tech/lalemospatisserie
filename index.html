@@ -4,84 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Lemos Patisserie</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffdf8;
+      color: #3c1e1e;
+    }
+
+    /* Menu */
+    header {
+      background-color: #4b0e1a; /* vinho */
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #f5d67b; /* dourado */
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f5d67b;
+    }
+
+    .cart {
+      position: relative;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .cart span {
+      background: #f5d67b;
+      color: #4b0e1a;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-weight: bold;
+    }
+
+    /* Banner */
+    .banner {
+      background: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      margin-top: 70px;
+    }
+
+    .banner h1 {
+      font-size: 50px;
+      background: rgba(75, 14, 26, 0.7);
+      padding: 20px 30px;
+      border-radius: 12px;
+    }
+
+    /* Nossas Delícias */
+    .delicias {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .delicias h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #4b0e1a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #f5e9da; /* bege */
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background-color: #f5d67b;
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-weight: bold;
+      color: #4b0e1a;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .banner h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">La Lemos</div>
+
+  <!-- Menu -->
+  <header>
+    <div class="logo">La Lemos Patisserie</div>
     <nav>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#delicias">Nossas Delícias</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <!-- Carrinho -->
-    <div class="carrinho">
-      <img src="carrinho.svg" alt="Carrinho" class="icon-carrinho">
-      <span id="contador">0</span>
-      <span id="total">R$ 0,00</span>
-    </div>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="overlay">
-      <h1>La Lemos Patisserie</h1>
-      <p>Elegância e sabor em cada detalhe ✨</p>
-      <a href="#produtos" class="btn">Ver Produtos</a>
-    </div>
+  <!-- Banner -->
+  <section class="banner" id="home">
+    <h1>Feitos com Carinho e Elegância</h1>
   </section>
 
-  <!-- Sobre -->
-  <section id="sobre" class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Produção artesanal em Fortaleza-CE, feita com carinho e dedicação.  
-    Cada doce carrega nossa paixão pela confeitaria e o compromisso com qualidade.</p>
-  </section>
-
-  <!-- Produtos -->
-  <section id="produtos" class="produtos">
-    <h2>Nossos Produtos</h2>
+  <!-- Nossas Delícias -->
+  <section class="delicias" id="delicias">
+    <h2>Conheça Nossas Delícias</h2>
     <div class="grid">
-      <div class="card">
-        <img src="bolo.jpg" alt="Bolo">
-        <h3>Bolo de Chocolate</h3>
-        <p>R$ 60,00</p>
-        <button onclick="adicionarCarrinho('Bolo de Chocolate', 60)">Adicionar</button>
+      <div class="card" onclick="addToCart(20)">
+        <img src="https://img.icons8.com/ios-filled/100/cupcake.png" alt="Doces">
+        <p>Doces</p>
       </div>
-      <div class="card">
-        <img src="panetone.jpg" alt="Panetone">
-        <h3>Panetone Artesanal</h3>
-        <p>R$ 45,00</p>
-        <button onclick="adicionarCarrinho('Panetone Artesanal', 45)">Adicionar</button>
+      <div class="card" onclick="addToCart(25)">
+        <img src="https://img.icons8.com/ios-filled/100/pizza.png" alt="Salgados">
+        <p>Salgados</p>
       </div>
-      <div class="card">
-        <img src="doces.jpg" alt="Doces">
-        <h3>Caixa de Doces</h3>
-        <p>R$ 30,00</p>
-        <button onclick="adicionarCarrinho('Caixa de Doces', 30)">Adicionar</button>
+      <div class="card" onclick="addToCart(40)">
+        <img src="https://img.icons8.com/ios-filled/100/pie.png" alt="Tortas">
+        <p>Tortas</p>
+      </div>
+      <div class="card" onclick="addToCart(60)">
+        <img src="https://img.icons8.com/ios-filled/100/birthday-cake.png" alt="Bolos Temáticos">
+        <p>Bolos Temáticos</p>
+      </div>
+      <div class="card" onclick="addToCart(50)">
+        <img src="https://img.icons8.com/ios-filled/100/cake.png" alt="Bolos Diversos">
+        <p>Bolos Diversos</p>
+      </div>
+      <div class="card" onclick="addToCart(30)">
+        <img src="https://img.icons8.com/ios-filled/100/cookies.png" alt="Rocambole">
+        <p>Rocambole</p>
+      </div>
+      <div class="card" onclick="addToCart(70)">
+        <img src="https://img.icons8.com/ios-filled/100/tray.png" alt="Kit Festa">
+        <p>Kit Festa</p>
       </div>
     </div>
   </section>
 
-  <!-- Depoimentos -->
-  <section id="depoimentos" class="depoimentos">
-    <h2>O que dizem nossos clientes</h2>
-    <blockquote>“Maravilhoso! Sabor inesquecível e atendimento impecável.”</blockquote>
-    <blockquote>“Cada detalhe mostra o cuidado e o amor pelo que fazem.”</blockquote>
-  </section>
+  <script>
+    let cartCount = 0;
+    let cartTotal = 0;
 
-  <!-- Contato -->
-  <footer id="contato" class="footer">
-    <h2>Entre em Contato</h2>
-    <p>📍 Fortaleza - CE</p>
-    <p>📲 <a href="https://wa.me/5521965120034">Peça pelo WhatsApp</a></p>
-    <p>© 2025 La Lemos Patisserie</p>
-  </footer>
+    function addToCart(price) {
+      cartCount++;
+      cartTotal += price;
+      document.getElementById("cart-count").innerText = cartCount;
+
+      alert("Produto adicionado! Total: R$ " + cartTotal.toFixed(2));
+    }
+  </script>
+
 </body>
 </html>
