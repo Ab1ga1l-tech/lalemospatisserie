@@ -5,41 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Lemos Patisserie</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header class="hero">
-    <div class="overlay">
-      <h1>La Lemos Patisserie</h1>
-      <p>Feitos com carinho ❤ | 100% artesanais e cheios de sabor</p>
-      <a href="https://wa.me/5521965120034" class="btn">Encomende Agora</a>
-    </div>
+  <!-- Menu -->
+  <header class="navbar">
+    <div class="logo">La Lemos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>La Lemos Patisserie</h1>
+      <p>Elegância e sabor em cada detalhe ✨</p>
+      <a href="https://wa.me/5521965120034" class="btn">Encomende Agora</a>
+    </div>
+  </section>
+
   <!-- Sobre -->
-  <section class="sobre">
+  <section id="sobre" class="sobre">
     <h2>Sobre Nós</h2>
-    <p>Produzimos doces e bolos artesanais em Fortaleza/CE. Nosso objetivo é transformar momentos em memórias doces, com sabor e qualidade.</p>
+    <p>Produção artesanal em Fortaleza-CE, feita com carinho e dedicação.  
+    Cada doce carrega nossa paixão pela confeitaria e o compromisso com qualidade.</p>
   </section>
 
   <!-- Produtos -->
-  <section class="produtos">
+  <section id="produtos" class="produtos">
     <h2>Nossos Produtos</h2>
     <div class="grid">
       <div class="card"><img src="bolo.jpg" alt="Bolo"><h3>Bolos</h3></div>
       <div class="card"><img src="panetone.jpg" alt="Panetone"><h3>Panetones</h3></div>
-      <div class="card"><img src="doce.jpg" alt="Doces"><h3>Doces Especiais</h3></div>
+      <div class="card"><img src="doces.jpg" alt="Doces"><h3>Doces Especiais</h3></div>
     </div>
   </section>
 
   <!-- Depoimentos -->
-  <section class="depoimentos">
+  <section id="depoimentos" class="depoimentos">
     <h2>O que dizem nossos clientes</h2>
-    <blockquote>"Simplesmente delicioso! Cada detalhe mostra o carinho no preparo." - Cliente</blockquote>
+    <blockquote>“Maravilhoso! Sabor inesquecível e atendimento impecável.”</blockquote>
+    <blockquote>“Cada detalhe mostra o cuidado e o amor pelo que fazem.”</blockquote>
   </section>
 
   <!-- Contato -->
-  <footer class="footer">
+  <footer id="contato" class="footer">
+    <h2>Entre em Contato</h2>
     <p>📍 Fortaleza - CE</p>
     <p>📲 <a href="https://wa.me/5521965120034">Peça pelo WhatsApp</a></p>
     <p>© 2025 La Lemos Patisserie</p>
