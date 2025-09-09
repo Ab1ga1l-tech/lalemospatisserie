@@ -1,15 +1,10 @@
-/* Fontes e Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Poppins', sans-serif;
   background: #fdfbf7;
   color: #4b2e2e;
-  line-height: 1.6;
 }
 
 /* Paleta */
@@ -23,8 +18,7 @@ body {
 /* Navbar */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   background: var(--vinho);
   color: white;
@@ -37,8 +31,9 @@ body {
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  color: var(--dourado);
 }
 
 .nav-links {
@@ -47,15 +42,36 @@ body {
   gap: 20px;
 }
 
-.nav-links li a {
+.nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
   color: var(--dourado);
+}
+
+/* Carrinho */
+.carrinho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.icon-carrinho {
+  width: 28px;
+  cursor: pointer;
+}
+
+#contador {
+  background: var(--dourado);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 0.8rem;
 }
 
 /* Hero */
@@ -63,18 +79,18 @@ body {
   background: url('fundo-patisserie.jpg') center/cover no-repeat;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  color: #fff;
+  color: white;
   position: relative;
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(75, 46, 46, 0.6);
+  background: rgba(75, 46, 46, 0.65);
 }
 
 .hero .overlay {
@@ -87,28 +103,22 @@ body {
   font-size: 3rem;
 }
 
-.hero p {
-  margin: 15px 0;
-  font-size: 1.2rem;
-}
-
 .btn {
   background: var(--dourado);
-  color: #fff;
+  color: white;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: bold;
-  transition: 0.3s;
+  margin-top: 15px;
   display: inline-block;
+  transition: background 0.3s;
 }
 
-.btn:hover {
-  background: #a8874a;
-}
+.btn:hover { background: #a8874a; }
 
 /* Seções */
 section {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -124,36 +134,47 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
-  margin-top: 30px;
 }
 
 .card {
   background: #fff;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
   transition: transform 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 
 .card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
 }
+
+.card button {
+  margin-top: 10px;
+  background: var(--vinho);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.card button:hover { background: var(--dourado); }
 
 /* Depoimentos */
 .depoimentos blockquote {
   font-style: italic;
-  color: var(--vinho-escuro);
   background: #fff;
-  padding: 20px;
   border-left: 5px solid var(--dourado);
   margin: 20px auto;
   max-width: 600px;
+  padding: 15px;
 }
 
 /* Footer */
@@ -165,23 +186,7 @@ h2 {
 
 .footer a {
   color: var(--dourado);
-  font-weight: bold;
   text-decoration: none;
 }
 
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    background: var(--vinho-escuro);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    display: none;
-  }
-}
+.footer a:hover { text-decoration: underline; }
