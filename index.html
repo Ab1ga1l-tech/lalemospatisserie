@@ -1,100 +1,231 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> 
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pâtisserie</title>
-  <link rel="stylesheet" href="style.css">
+  <title>La Lemos Patisserie</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffdf8;
+      color: #3c1e1e;
+    }
+
+    /* Menu */
+    header {
+      background-color: #4b0e1a; /* vinho */
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #f5d67b; /* dourado */
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f5d67b;
+    }
+
+    .cart {
+      position: relative;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .cart span {
+      background: #f5d67b;
+      color: #4b0e1a;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-weight: bold;
+    }
+
+    /* Banner */
+    .banner {
+      background: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      margin-top: 70px;
+    }
+
+    .banner h1 {
+      font-size: 50px;
+      background: rgba(75, 14, 26, 0.7);
+      padding: 20px 30px;
+      border-radius: 12px;
+    }
+
+    /* Nossas Delícias */
+    .delicias {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .delicias h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #4b0e1a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #f5e9da; /* bege */
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* garante que a imagem não passe da borda */
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ocupa todo o círculo */
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #4b0e1a;
+      text-align: center;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .banner h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Menu -->
   <header>
-    <nav class="navbar">
-      <h1 class="logo">Pâtisserie</h1>
-      <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+    <div class="logo">La Lemos Patisserie</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#delicias">Nossas Delícias</a></li>
         <li><a href="#contato">Contato</a></li>
-        <li><a href="#carrinho">🛒 Carrinho</a></li>
       </ul>
     </nav>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
   </header>
 
   <!-- Banner -->
-  <section id="home" class="banner">
-    <div class="banner-texto">
-      <h2>Bem-vindo à nossa Pâtisserie</h2>
-      <p>Doces artesanais com sabor e elegância</p>
-      <a href="#produtos" class="btn">Ver Produtos</a>
-    </div>
+  <section class="banner" id="home">
+    <h1>Feitos com Carinho e Elegância</h1>
   </section>
 
-  <!-- Produtos -->
-  <section id="produtos" class="produtos">
-    <h2>Nossos Produtos</h2>
+  <!-- Nossas Delícias -->
+  <section class="delicias" id="delicias">
+    <h2>Conheça Nossas Delícias</h2>
     <div class="grid">
-      <div class="card">
-        <img src="img/e8cf48f4-d129-4c7c-8598-5e4a7f43de5f.png" alt="Produto 1">
-        <h3>Bolo de Frutas</h3>
-        <p>R$ 45,00</p>
-        <button class="add-carrinho" data-preco="45">Adicionar</button>
+      <div class="card" onclick="addToCart(20)">
+        <img src="patisserie (1).jpg" alt="Doces">
+        <p>Doces</p>
       </div>
-      <div class="card">
-        <img src="img/7c90a28c-a181-40db-ae51-1f1d900b0abd.png" alt="Produto 2">
-        <h3>Macarons</h3>
-        <p>R$ 30,00</p>
-        <button class="add-carrinho" data-preco="30">Adicionar</button>
+      <div class="card" onclick="addToCart(25)">
+        <img src="b710c4dd-b083-4d9e-bb07-d3d65f752260.png" alt="Bolos">
+        <p>Salgados</p>
       </div>
-      <div class="card">
-        <img src="img/117677eb-8f44-42c4-bf7c-7263cd5789da.png" alt="Produto 3">
-        <h3>Torta de Chocolate</h3>
-        <p>R$ 55,00</p>
-        <button class="add-carrinho" data-preco="55">Adicionar</button>
+      <div class="card" onclick="addToCart(40)">
+        <img src="e8cf48f4-d129-4c7c-8598-5e4a7f43de5f.png" alt="Panetones">
+        <p>Tortas</p>
+      </div>
+      <div class="card" onclick="addToCart(60)">
+        <img src="7c90a28c-a181-40db-ae51-1f1d900b0abd.png" alt="Cookies">
+        <p>Bolos Temáticos</p>
+      </div>
+      <div class="card" onclick="addToCart(35)">
+        <img src="117677eb-8f44-42c4-bf7c-7263cd5789da.png" alt="Outros">
+        <p>Outros</p>
       </div>
     </div>
   </section>
 
-  <!-- Sobre -->
-  <section id="sobre" class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Na nossa pâtisserie, cada doce é feito com dedicação, tradição francesa e um toque especial para tornar seus momentos inesquecíveis.</p>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="contato">
-    <h2>Fale Conosco</h2>
-    <form>
-      <input type="text" placeholder="Seu Nome" required>
-      <input type="email" placeholder="Seu Email" required>
-      <textarea placeholder="Sua Mensagem" required></textarea>
-      <button type="submit" class="btn">Enviar</button>
-    </form>
-  </section>
-
-  <!-- Carrinho -->
-  <section id="carrinho" class="carrinho">
-    <h2>🛒 Seu Carrinho</h2>
-    <p>Total: R$ <span id="total">0</span>,00</p>
-  </section>
-
-  <!-- Rodapé -->
-  <footer>
-    <p>&copy; 2025 Pâtisserie - Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- Script Carrinho -->
   <script>
-    let total = 0;
-    const totalSpan = document.getElementById("total");
-    const botoes = document.querySelectorAll(".add-carrinho");
+    let cartCount = 0;
+    let cartTotal = 0;
 
-    botoes.forEach(botao => {
-      botao.addEventListener("click", () => {
-        total += parseFloat(botao.dataset.preco);
-        totalSpan.textContent = total;
-      });
-    });
+    function addToCart(price) {
+      cartCount++;
+      cartTotal += price;
+      document.getElementById("cart-count").innerText = cartCount;
+
+      alert("Produto adicionado! Total: R$ " + cartTotal.toFixed(2));
+    }
   </script>
+
 </body>
 </html>
